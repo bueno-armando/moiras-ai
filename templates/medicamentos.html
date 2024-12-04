@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Gestión de Medicamentos</h2>
+    <a href="{{ url_for('nuevo_medicamento') }}" class="btn btn-primary mb-3">Nuevo Medicamento</a>
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fabricante</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicamento in medicamentos %}
+                <tr>
+                    <td>{{ medicamento.id_medicamento }}</td>
+                    <td>{{ medicamento.nombre }}</td>
+                    <td>{{ medicamento.descripcion }}</td>
+                    <td>{{ medicamento.fabricante }}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{{ url_for('editar_medicamento', medicamento_id=medicamento.id_medicamento) }}" 
+                               class="btn btn-warning btn-sm">Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                    onclick="confirmarEliminacion({{ medicamento.id_medicamento }})">
+                                Eliminar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Exámenes de Laboratorio</h2>
+    <a href="{{ url_for('nuevo_examen') }}" class="btn btn-primary mb-3">Nuevo Examen</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente ID</th>
+                <th>Tipo de Examen</th>
+                <th>Resultado</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for examen in examenes %}
+            <tr>
+                <td>{{ examen.id_examen }}</td>
+                <td>{{ examen.paciente_id }}</td>
+                <td>{{ examen.tipo_examen }}</td>
+                <td>{{ examen.resultado }}</td>
+                <td>{{ examen.fecha }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

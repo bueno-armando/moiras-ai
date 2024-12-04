@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Gestión de Citas</h2>
+    <a href="{{ url_for('nueva_cita') }}" class="btn btn-primary mb-3">Nueva Cita</a>
+    
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Paciente</th>
+                    <th>Doctor</th>
+                    <th>Hospital</th>
+                    <th>Motivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                <tr>
+                    <td>{{ cita.fecha }}</td>
+                    <td>{{ cita.hora }}</td>
+                    <td>{{ cita.paciente }}</td>
+                    <td>{{ cita.doctor }}</td>
+                    <td>{{ cita.hospital }}</td>
+                    <td>{{ cita.motivo }}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{{ url_for('editar_cita', cita_id=cita.id_cita) }}" 
+                               class="btn btn-warning btn-sm">Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                    onclick="confirmarCancelacion({{ cita.id_cita }})">
+                                Cancelar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %} 

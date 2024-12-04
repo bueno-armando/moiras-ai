@@ -1,136 +1,117 @@
-/* Variables de colores y configuración general */
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --background-color: #ecf0f1;
-    --text-color: #2c3e50;
-    --shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-* {
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    background-image: url('img/hospital_inside_view.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    padding: 20px;
-}
-
-/* Contenedor principal */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    background-color: white;
+    background: white;
     border-radius: 10px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezados */
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+h1 {
     text-align: center;
+    color: #0078d7;
 }
 
-/* Formularios */
-form {
-    display: grid;
-    gap: 1rem;
-    padding: 20px;
+h2 {
+    text-align: center;
+    color: #0078d7;
+    font-weight: bold;
+    font-size: 36px;
+    margin-top: 40px;
 }
 
-.form-group {
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #005fa3;
+}
+
+.container-fluid {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-label {
-    font-weight: 600;
-    color: var(--primary-color);
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    margin: 70px;
+    height: 50%;
 }
 
-input, select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-/* Botones */
-button {
-    background-color: var(--secondary-color);
+.button {
+    background-color: #007bff;
     color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #2980b9;
-}
-
-/* Resultados */
-.results {
-    margin-top: 20px;
     padding: 20px;
-    background-color: #f8f9fa;
+    text-align: center;
+    text-decoration: none;
     border-radius: 5px;
-    border-left: 4px solid var(--secondary-color);
+    font-size: 30px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Mensajes de error */
-.error {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
+.button:hover {
+    background-color: #0056b3;
 }
 
-/* Diseño responsivo */
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    form {
-        padding: 10px;
-    }
-
-    button {
-        width: 100%;
-    }
+.button i {
+    margin-right: 8px;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 20px;
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-out;
+.logout:hover {
+    background-color: #c82333;
 }

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Predicción de IA{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Predicción de Ataques Cardíacos</h1>
+    <form method="POST">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" required>
+        <label for="anemia">¿Tiene anemia? (Sí/No)</label>
+        <input type="text" id="anemia" name="anemia" required>
+        <label for="diabetes">¿Tiene diabetes? (Sí/No)</label>
+        <input type="text" id="diabetes" name="diabetes" required>
+        <label for="eyeccion">Fracción de eyección (%)</label>
+        <input type="number" id="eyeccion" name="eyeccion" required>
+        <label for="presion">¿Tiene presión alta? (Sí/No)</label>
+        <input type="text" id="presion" name="presion" required>
+        <label for="plaquetas">Nivel de plaquetas</label>
+        <input type="number" id="plaquetas" name="plaquetas" required>
+        <label for="creatinina">Nivel de creatinina</label>
+        <input type="number" id="creatinina" name="creatinina" required>
+        <label for="sexo">Sexo (M/F)</label>
+        <input type="text" id="sexo" name="sexo" required>
+        <label for="fuma">¿Fuma? (0/1)</label>
+        <input type="number" id="fuma" name="fuma" required>
+        <label for="tiempo">Tiempo desde último evento (meses)</label>
+        <input type="number" id="tiempo" name="tiempo" required>
+        <button type="submit">Predecir</button>
+    </form>
+    {% if result is not none %}
+    <div class="result">
+        <h2>Resultado: {{ result|round(2) }}</h2>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

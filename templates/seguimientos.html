@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Seguimientos Médicos</h2>
+    <a href="{{ url_for('nuevo_seguimiento') }}" class="btn btn-primary mb-3">Nuevo Seguimiento</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente ID</th>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for seguimiento in seguimientos %}
+            <tr>
+                <td>{{ seguimiento.id_seguimiento }}</td>
+                <td>{{ seguimiento.paciente_id }}</td>
+                <td>{{ seguimiento.fecha }}</td>
+                <td>{{ seguimiento.observaciones }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

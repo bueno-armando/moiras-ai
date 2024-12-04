@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Imágenes Médicas</h2>
+    <a href="{{ url_for('nueva_imagen') }}" class="btn btn-primary mb-3">Nueva Imagen</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente ID</th>
+                <th>Tipo de Imagen</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for imagen in imagenes %}
+            <tr>
+                <td>{{ imagen.id_imagen }}</td>
+                <td>{{ imagen.paciente_id }}</td>
+                <td>{{ imagen.tipo_imagen }}</td>
+                <td>{{ imagen.descripcion }}</td>
+                <td>{{ imagen.fecha }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

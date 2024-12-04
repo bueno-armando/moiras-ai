@@ -9,6 +9,6 @@ GRANT SELECT ON moiras_db.ConsultasRealizadas TO 'medico_consulta'@'localhost';
 GRANT SELECT ON moiras_db.ExamenesLaboratorio TO 'medico_consulta'@'localhost';
 
 -- revocar permisos si es necesario
-REVOKE INSERT, UPDATE, DELETE ON moiras_db.* FROM 'medico_consulta'@'localhost';
+-- REVOKE INSERT, UPDATE, DELETE ON moiras_db.* FROM 'medico_consulta'@'localhost';
 
 DELIMITER ;

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Estadísticas de Predicción</h2>
+    <a href="{{ url_for('nueva_estadistica') }}" class="btn btn-primary mb-3">Nueva Estadística</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente ID</th>
+                <th>Fecha</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estadistica in estadisticas %}
+            <tr>
+                <td>{{ estadistica.id_estadistica }}</td>
+                <td>{{ estadistica.paciente_id }}</td>
+                <td>{{ estadistica.fecha }}</td>
+                <td>{{ estadistica.resultado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

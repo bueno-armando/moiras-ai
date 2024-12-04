@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Nueva Imagen Médica</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="paciente_id" class="form-label">Paciente ID</label>
+            <input type="number" class="form-control" id="paciente_id" name="paciente_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="tipo_imagen" class="form-label">Tipo de Imagen</label>
+            <input type="text" class="form-control" id="tipo_imagen" name="tipo_imagen" required>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ url_for('imagenes') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Imagen</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

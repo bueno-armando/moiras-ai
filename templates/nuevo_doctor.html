@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Nuevo Doctor</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <label for="especialidad_id" class="form-label">Especialidad</label>
+                <select class="form-select" id="especialidad_id" name="especialidad_id" required>
+                    <option value="">Seleccionar especialidad...</option>
+                    {% for especialidad in especialidades %}
+                    <option value="{{ especialidad.id_especialidad }}">{{ especialidad.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="horario" class="form-label">Horario de Consulta</label>
+                <input type="text" class="form-control" id="horario" name="horario" 
+                       placeholder="Ej: Lunes a Viernes 9:00-17:00">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="consultorio" class="form-label">Número de Consultorio</label>
+                <input type="text" class="form-control" id="consultorio" name="consultorio">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="certificaciones" class="form-label">Certificaciones</label>
+            <textarea class="form-control" id="certificaciones" name="certificaciones" 
+                      rows="2" placeholder="Ingrese las certificaciones relevantes"></textarea>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ url_for('doctores') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Doctor</button>
+        </div>
+    </form>
+</div>
+
+<script>
+// Validación del formulario
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+</script>
+{% endblock %} 

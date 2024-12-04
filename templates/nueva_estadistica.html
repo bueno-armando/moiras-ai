@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Nueva Estadística</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="paciente_id" class="form-label">Paciente ID</label>
+            <input type="number" class="form-control" id="paciente_id" name="paciente_id" required>
+        </div>
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fecha" name="fecha" required>
+        </div>
+        <div class="mb-3">
+            <label for="resultado" class="form-label">Resultado</label>
+            <textarea class="form-control" id="resultado" name="resultado" required></textarea>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ url_for('estadisticas') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Estadística</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

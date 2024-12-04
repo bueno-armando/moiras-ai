@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid" style="height: 100vh; display: flex; flex-direction: column;">
+    <div class="d-flex justify-content-end">
+        <a href="/logout" class="button logout" title="Cerrar Sesión">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+    <h2 class="text-center">MOIRAS MANAGEMENT SYSTEM</h2>
+    <div class="button-grid" style="flex-grow: 1;">
+        <a href="/ai" class="button">
+            <i class="fas fa-heartbeat"></i> Predicción de Ataques Cardíacos
+        </a>
+        <a href="{{ url_for('pacientes') }}" class="button">
+            <i class="fas fa-user-injured"></i> Gestión de Pacientes
+        </a>
+        <a href="{{ url_for('doctores') }}" class="button">
+            <i class="fas fa-user-md"></i> Gestión de Doctores
+        </a>
+        <a href="{{ url_for('citas') }}" class="button">
+            <i class="fas fa-calendar-check"></i> Gestión de Citas
+        </a>
+        <a href="{{ url_for('hospitales') }}" class="button">
+            <i class="fas fa-hospital"></i> Gestión de Hospitales
+        </a>
+        <a href="{{ url_for('medicamentos') }}" class="button">
+            <i class="fas fa-pills"></i> Gestión de Medicamentos
+        </a>
+        <a href="{{ url_for('estadisticas') }}" class="button">
+            <i class="fas fa-chart-line"></i> Estadísticas de Predicción
+        </a>
+        <a href="{{ url_for('examenes') }}" class="button">
+            <i class="fas fa-flask"></i> Exámenes de Laboratorio
+        </a>
+        <a href="{{ url_for('imagenes') }}" class="button">
+            <i class="fas fa-image"></i> Imágenes Médicas
+        </a>
+        <a href="{{ url_for('seguimientos') }}" class="button">
+            <i class="fas fa-notes-medical"></i> Seguimientos Médicos
+        </a>
+    </div>
+</div>
+{% endblock %}

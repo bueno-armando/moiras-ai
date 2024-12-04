@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Predicción de Ataques Cardíacos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Predicción de Ataques Cardíacos</h2>
+    
+    <p>Utiliza el modelo de IA para predecir el riesgo de ataques cardíacos. Por favor, completa los siguientes datos:</p>
+    
+    <form action="{{ url_for('predict_attack') }}" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="edad" name="edad" required>
+            <div class="invalid-feedback">
+                Por favor, ingresa tu edad.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="presion_arterial" class="form-label">Presión Arterial (mmHg)</label>
+            <input type="number" class="form-control" id="presion_arterial" name="presion_arterial" required>
+            <div class="invalid-feedback">
+                Por favor, ingresa tu presión arterial.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="colesterol" class="form-label">Colesterol (mg/dL)</label>
+            <input type="number" class="form-control" id="colesterol" name="colesterol" required>
+            <div class="invalid-feedback">
+                Por favor, ingresa tu nivel de colesterol.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="glucosa" class="form-label">Glucosa (mg/dL)</label>
+            <input type="number" class="form-control" id="glucosa" name="glucosa" required>
+            <div class="invalid-feedback">
+                Por favor, ingresa tu nivel de glucosa.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="actividad_fisica" class="form-label">Actividad Física (0-10)</label>
+            <input type="number" class="form-control" id="actividad_fisica" name="actividad_fisica" min="0" max="10" required>
+            <div class="invalid-feedback">
+                Por favor, ingresa un nivel de actividad física entre 0 y 10.
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Predecir Riesgo</button>
+        </div>
+    </form>
+</div>
+
+<!-- Botones de navegación -->
+<div class="d-flex justify-content-center mb-4">
+    <a href="javascript:history.back()" class="btn btn-secondary me-2">
+        <i class="bi bi-arrow-left"></i> Regresar
+    </a>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">
+        <i class="bi bi-house"></i> Inicio
+    </a>
+</div>
+
+<script>
+// Validación del formulario
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+</script>
+{% endblock %} 
